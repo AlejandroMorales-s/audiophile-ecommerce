@@ -1,0 +1,23 @@
+.regular-text {
+  font-weight: $medium;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.overline {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-weight: $regular;
+  color: $primary;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: $bold;
+  color: $primary;
+}

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
+$font: "Manrope", sans-serif;
+
+//* Font weights
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+//* Colors
+$primary: hsl(22, 65%, 57%);
+$lightPrimary: hsl(21, 94%, 75%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$lightGray: hsl(0, 0%, 98%);
+$gray: hsl(0, 0%, 95%);
+$veryDarkGray: hsl(0, 0%, 6%);
+
+//* Breakpoints
+$mobile: 359px;
+$tablet: 768px;
+$laptop: 1024px;
