@@ -1,0 +1,15 @@
+@import "../../../App.scss";
+
+.button {
+  padding: 1.5rem 3rem;
+  border: none;
+  background-color: $primary;
+  font-size: 1.3rem;
+  font-weight: $bold;
+  color: $white;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $lightPrimary;
+  }
+}
