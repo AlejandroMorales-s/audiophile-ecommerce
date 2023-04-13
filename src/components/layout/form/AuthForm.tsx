@@ -5,15 +5,11 @@ import { Formik, Form, FormikHelpers } from "formik";
 import PrimaryButton from "../../common/primaryButton/PrimaryButton";
 //* Styles
 import styles from "./AuthForm.module.scss";
+import { Link } from "react-router-dom";
 
+//* Interfaces
 interface Props {
   children: React.ReactNode;
-  initialValues: {
-    firstName?: string;
-    lastName?: string;
-    email: string;
-    password: string;
-  };
   onSubmit: (
     values: {
       firstName?: string;
@@ -32,6 +28,7 @@ interface Props {
   authType: "login" | "signup";
 }
 
+//* Links
 const links = {
   login: {
     text: "Don't have an account? Sign up",
@@ -43,23 +40,31 @@ const links = {
   },
 };
 
-const AuthForm: FC<Props> = ({
-  children,
-  initialValues,
-  onSubmit,
-  buttonText,
-  authType,
-}) => {
+//* Initial values
+const values = {
+  login: {
+    email: "",
+    password: "",
+  },
+  signup: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  },
+};
+
+const AuthForm: FC<Props> = ({ children, onSubmit, buttonText, authType }) => {
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik initialValues={values[authType]} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
         <>
           <Form className={styles.container}>
             {children}
             <div className={styles["links-container"]}>
-              <a className={styles.link} href={links[authType].link}>
+              <Link className={styles.link} to={links[authType].link}>
                 {links[authType].text}
-              </a>
+              </Link>
               <PrimaryButton
                 text={buttonText}
                 type="submit"
