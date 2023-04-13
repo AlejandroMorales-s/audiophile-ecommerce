@@ -8,6 +8,11 @@
   position: relative;
 }
 
+.label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .label {
   font-size: 1.5rem;
   font-weight: $bold;
@@ -36,4 +41,22 @@
   bottom: 1.5rem;
   right: 2.4rem;
   font-size: 2.5rem;
+}
+
+.label-error {
+  color: $red;
+}
+
+.input-error {
+  border-color: $red;
+  border-width: 2px;
+  &:focus {
+    border-color: $red !important;
+  }
+}
+
+.error-message {
+  font-size: 1.4rem;
+  font-weight: $medium;
+  color: $red;
 }

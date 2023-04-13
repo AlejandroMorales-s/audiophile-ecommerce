@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 //* Components
 import Input from "../components/common/input/Input";
 import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
@@ -7,6 +7,8 @@ import { FormikHelpers } from "formik";
 //* Redux
 import { useAppDispatch } from "../store";
 import { createUser } from "../reducers/auth/authReducer";
+//* Helpers
+import { checkObjectOfInputs } from "../helpers";
 
 interface Values {
   firstName?: string;
@@ -15,18 +17,30 @@ interface Values {
   password: string;
 }
 
+interface InputErrors {
+  [key: string]: string;
+}
+
 const SignUp = () => {
+  const [inputErrors, setInputErrors] = useState<InputErrors>({});
+
   const dispatch = useAppDispatch();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-
-  const handleSubmit = (
+  const handleSubmit = async (
     values: Values,
     { setSubmitting }: FormikHelpers<Values>
   ) => {
+    const currentInputErrors = checkObjectOfInputs(values);
+
+    setInputErrors(currentInputErrors);
+
+    if (Object.keys(currentInputErrors).length > 0) {
+      setSubmitting(false);
+      return;
+    }
+
     dispatch(createUser(values)).then(() => setSubmitting(false));
+    setSubmitting(false);
   };
 
   return (
@@ -36,16 +50,24 @@ const SignUp = () => {
         label="First Name"
         type="text"
         placeholder="John"
-        onChange={change}
+        inputError={inputErrors.firstName}
       />
-      <Input name="lastName" label="Last Name" type="text" placeholder="Doe" />
+      <Input
+        inputError={inputErrors.lastName}
+        name="lastName"
+        label="Last Name"
+        type="text"
+        placeholder="Doe"
+      />
       <Input
         name="email"
         label="Email"
         type="email"
         placeholder="example@example.com"
+        inputError={inputErrors.email}
       />
       <Input
+        inputError={inputErrors.password}
         name="password"
         label="password"
         type="password"

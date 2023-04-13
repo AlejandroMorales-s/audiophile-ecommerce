@@ -12,18 +12,33 @@ type Props = {
   placeholder?: string;
   label: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputError?: string;
 };
 
-const Input: FC<Props> = ({ type, name, placeholder, label, onChange }) => {
+const Input: FC<Props> = ({
+  type,
+  name,
+  placeholder,
+  label,
+  onChange,
+  inputError,
+}) => {
   //* State
   const [inputType, setInputType] = useState<"text" | "password">("password");
 
   return (
     <div className={styles.container}>
-      <label className={styles.label}>{label}</label>
+      <div className={styles["label-container"]}>
+        <label
+          className={`${styles.label} ${inputError && styles["label-error"]}`}
+        >
+          {label}
+        </label>
+        {inputError && <p className={styles["error-message"]}>{inputError}</p>}
+      </div>
 
       <Field
-        className={styles.input}
+        className={`${styles.input} ${inputError && styles["input-error"]}`}
         type={type === "password" ? inputType : type}
         name={name}
         placeholder={placeholder}
