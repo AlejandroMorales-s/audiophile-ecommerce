@@ -1,0 +1,28 @@
+@import "../../../App.scss";
+
+.container {
+  background-color: $white;
+  border-radius: 0.8rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  // min-width: ;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.link {
+  font-size: 1.5rem;
+  font-weight: $bold;
+  color: $primary;
+}
