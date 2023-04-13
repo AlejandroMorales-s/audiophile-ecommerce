@@ -6,7 +6,7 @@ import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
 import { FormikHelpers } from "formik";
 //* Redux
 import { useAppDispatch } from "../store";
-import { loginWithEmail } from "../reducers/auth/authReducer";
+import { loginWithEmail } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
 
