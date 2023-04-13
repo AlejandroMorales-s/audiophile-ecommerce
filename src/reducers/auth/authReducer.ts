@@ -42,6 +42,7 @@ const options = {
       const { payload } = action;
       state.isLoading = false;
       state.user = payload;
+      state.isLogged = true;
     });
     builder.addCase(createUser.rejected, (state) => {
       state.isLoading = false;
