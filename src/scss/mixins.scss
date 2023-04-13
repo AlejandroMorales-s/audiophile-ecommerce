@@ -14,3 +14,13 @@
     @content;
   }
 }
+
+@mixin respond-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "No such breakpoint: #{$breakpoint}";
+  }
+}

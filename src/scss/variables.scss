@@ -17,6 +17,11 @@ $inputBorder: hsl(0, 0%, 81%);
 $veryDarkGray: hsl(0, 0%, 6%);
 
 //* Breakpoints
-$mobile: 359px;
-$tablet: 768px;
-$laptop: 1024px;
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+//* Container width
+$containerMaxWidth: 110rem;

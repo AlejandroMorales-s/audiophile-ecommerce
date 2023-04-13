@@ -3,8 +3,10 @@ import styles from "./LogoNavbar.module.scss";
 
 const LogoNavbar = () => {
   return (
-    <div className={styles.container}>
-      <Logo />
+    <div className={styles.background}>
+      <div className={styles.container}>
+        <Logo />
+      </div>
     </div>
   );
 };

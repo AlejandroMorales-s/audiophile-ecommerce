@@ -9,7 +9,19 @@
   color: $white;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
-  &:hover {
+  width: 100%;
+}
+
+@include respond-above(sm) {
+  .button {
+    width: fit-content;
+    align-self: flex-end;
+  }
+}
+
+@include respond-above(lg) {
+  .button:hover {
     background-color: $lightPrimary;
+    cursor: pointer;
   }
 }

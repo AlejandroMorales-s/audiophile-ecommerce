@@ -11,7 +11,7 @@
   justify-content: center;
   width: 90%;
   margin: 0 auto;
-  // min-width: ;
+  max-width: 70rem;
 }
 
 .links-container {
@@ -25,4 +25,12 @@
   font-size: 1.5rem;
   font-weight: $bold;
   color: $primary;
+}
+
+@include respond-above(sm) {
+  .links-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
