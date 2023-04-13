@@ -23,6 +23,20 @@ export const createUser = createAsyncThunk(
   }
 );
 
+//* Login with email and password
+export const loginWithEmail = createAsyncThunk(
+  "auth/loginWithEmail",
+  async (user: UserForm, thunkAPI) => {
+    try {
+      const { data }: { data: User } = await instance.post("/auth/login", user);
+
+      return data;
+    } catch (error: any) {
+      throw new Error(error.response.data.message);
+    }
+  }
+);
+
 //* Initial state
 const initialState: InitialState = {
   user: null,
@@ -45,6 +59,18 @@ const options = {
       state.isLogged = true;
     });
     builder.addCase(createUser.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(loginWithEmail.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(loginWithEmail.fulfilled, (state, action) => {
+      const { payload } = action;
+      state.isLoading = false;
+      state.user = payload;
+      state.isLogged = true;
+    });
+    builder.addCase(loginWithEmail.rejected, (state, action) => {
       state.isLoading = false;
     });
   },
