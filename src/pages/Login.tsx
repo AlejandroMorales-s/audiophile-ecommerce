@@ -38,7 +38,6 @@ const Login = () => {
     }
 
     dispatch(loginWithEmail(values)).then(() => setSubmitting(false));
-    setSubmitting(false);
   };
 
   return (

@@ -40,7 +40,6 @@ const SignUp = () => {
     }
 
     dispatch(createUser(values)).then(() => setSubmitting(false));
-    setSubmitting(false);
   };
 
   return (
