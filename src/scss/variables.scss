@@ -9,13 +9,27 @@ $bold: 700;
 //* Colors
 $primary: hsl(22, 65%, 57%);
 $lightPrimary: hsl(21, 94%, 75%);
+
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
-$lightGray: hsl(0, 0%, 98%);
+
 $gray: hsl(0, 0%, 95%);
-$inputBorder: hsl(0, 0%, 81%);
+$lightGray: hsl(0, 0%, 98%);
 $veryDarkGray: hsl(0, 0%, 6%);
+
+$inputBorder: hsl(0, 0%, 81%);
+
 $red: hsl(0, 65%, 49%);
+$lightRed: hsl(0, 100%, 97%);
+
+$green: hsl(137, 63%, 39%);
+$lightGreen: hsl(137, 78%, 93%);
+
+$yellow: hsl(47, 88%, 53%);
+$lightYellow: hsl(46, 100%, 94%);
+
+$blue: hsl(220, 100%, 40%);
+$lightBlue: hsl(213, 100%, 96%);
 
 //* Breakpoints
 $xs: 0;

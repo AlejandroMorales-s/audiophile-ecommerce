@@ -9,3 +9,22 @@ $breakpoints: (
   "lg": $lg,
   "xl": $xl,
 );
+
+$notificationColors: (
+  "info": (
+    "color": $blue,
+    "background-color": $lightBlue,
+  ),
+  "success": (
+    "color": $green,
+    "background-color": $lightGreen,
+  ),
+  "warning": (
+    "color": $yellow,
+    "background-color": $lightYellow,
+  ),
+  "error": (
+    "color": $red,
+    "background-color": $lightRed,
+  ),
+);

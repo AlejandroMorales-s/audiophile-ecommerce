@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { User, UserForm } from "./interfaces";
 import instance from "../../axios";
+import { setNotificationInfo } from "../notification/notificationReducer";
 
 //* Create user
 export const createUser = createAsyncThunk(
@@ -14,7 +15,16 @@ export const createUser = createAsyncThunk(
 
       return data;
     } catch (error: any) {
-      throw new Error(error.response.data.message);
+      const { response } = error as { response: { data: { message: string } } };
+
+      thunkAPI.dispatch(
+        setNotificationInfo({
+          message: response.data.message,
+          type: "error",
+          title: "Something went wrong",
+        })
+      );
+      throw new Error(response.data.message);
     }
   }
 );
@@ -27,10 +37,17 @@ export const loginWithEmail = createAsyncThunk(
       const { data }: { data: User } = await instance.post("/auth/login", user);
 
       return data;
-    } catch (error: any) {
-      console.log(error.response.data.message);
+    } catch (error) {
+      const { response } = error as { response: { data: { message: string } } };
 
-      throw new Error(error.response.data.message);
+      thunkAPI.dispatch(
+        setNotificationInfo({
+          message: response.data.message,
+          type: "error",
+          title: "Something went wrong",
+        })
+      );
+      throw new Error(response.data.message);
     }
   }
 );
