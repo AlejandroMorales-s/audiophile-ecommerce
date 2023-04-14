@@ -9,6 +9,7 @@ import { useAppDispatch } from "../store";
 import { loginWithEmail } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
+import { Helmet } from "react-helmet-async";
 
 interface Values {
   email: string;
@@ -41,21 +42,26 @@ export default function Login() {
   };
 
   return (
-    <AuthTemplate handleSubmit={handleSubmit} authType="login">
-      <Input
-        name="email"
-        label="Email"
-        type="email"
-        placeholder="example@example.com"
-        inputError={inputErrors.email}
-      />
-      <Input
-        name="password"
-        label="password"
-        type="password"
-        placeholder="********"
-        inputError={inputErrors.password}
-      />
-    </AuthTemplate>
+    <>
+      <Helmet>
+        <title>Login | audiophile</title>
+      </Helmet>
+      <AuthTemplate handleSubmit={handleSubmit} authType="login">
+        <Input
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="example@example.com"
+          inputError={inputErrors.email}
+        />
+        <Input
+          name="password"
+          label="password"
+          type="password"
+          placeholder="********"
+          inputError={inputErrors.password}
+        />
+      </AuthTemplate>
+    </>
   );
 }
