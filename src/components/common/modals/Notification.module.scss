@@ -1,0 +1,65 @@
+@import "../../../App.scss";
+
+.notification {
+  position: fixed;
+  top: 2rem;
+  left: 0.5rem;
+  z-index: 1000;
+  padding: 1.6rem;
+  border-left: 0.3rem solid;
+  @include box-shadow();
+  display: grid;
+  grid-template-columns: 0.5fr 4.5fr 0.5fr;
+  gap: 1.6rem;
+  max-width: 28.8rem;
+}
+
+@each $type, $colors in $notificationColors {
+  .#{$type} {
+    border-color: map-get($colors, "color");
+    color: map-get($colors, "color");
+    background-color: map-get($colors, "background-color");
+  }
+}
+
+.title {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  font-weight: $bold;
+  color: $black;
+}
+
+.message {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: $black;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.opening-notification {
+  animation: openingNotification 0.65s ease-in-out forwards;
+}
+
+.closing-notification {
+  animation: closingNotification 0.65s ease-in-out forwards;
+}
+
+@keyframes closingNotification {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+@keyframes openingNotification {
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
