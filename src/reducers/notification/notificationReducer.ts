@@ -3,11 +3,11 @@ import { InitialState, NotificationData } from "./interfaces";
 
 //* Creating store
 const initialState: InitialState = {
-  isActive: true,
+  isActive: false,
   closingNotification: false,
   data: {
-    title: "Example title",
-    message: "This is an example message",
+    title: "",
+    message: "",
     type: "success",
   },
 };
