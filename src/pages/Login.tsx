@@ -19,7 +19,7 @@ interface InputErrors {
   [key: string]: string;
 }
 
-const Login = () => {
+export default function Login() {
   const [inputErrors, setInputErrors] = useState<InputErrors>({});
 
   const dispatch = useAppDispatch();
@@ -58,6 +58,4 @@ const Login = () => {
       />
     </AuthTemplate>
   );
-};
-
-export default Login;
+}

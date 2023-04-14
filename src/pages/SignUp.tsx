@@ -21,7 +21,7 @@ interface InputErrors {
   [key: string]: string;
 }
 
-const SignUp = () => {
+export default function SignUp() {
   const [inputErrors, setInputErrors] = useState<InputErrors>({});
 
   const dispatch = useAppDispatch();
@@ -74,6 +74,4 @@ const SignUp = () => {
       />
     </AuthTemplate>
   );
-};
-
-export default SignUp;
+}
