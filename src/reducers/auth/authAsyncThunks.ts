@@ -10,7 +10,10 @@ export const createUser = createAsyncThunk(
     try {
       const { data }: { data: User } = await instance.post(
         "/auth/register",
-        user
+        user,
+        {
+          withCredentials: true,
+        }
       );
 
       return data;
@@ -34,7 +37,11 @@ export const loginWithEmail = createAsyncThunk(
   "auth/loginWithEmail",
   async (user: UserForm, thunkAPI) => {
     try {
-      const { data }: { data: User } = await instance.post("/auth/login", user);
+      const { data }: { data: User } = await instance.post(
+        "/auth/login",
+        user,
+        { withCredentials: true }
+      );
 
       return data;
     } catch (error) {
@@ -47,6 +54,24 @@ export const loginWithEmail = createAsyncThunk(
           title: "Something went wrong",
         })
       );
+      throw new Error(response.data.message);
+    }
+  }
+);
+
+//* Authenticate session
+export const authenticateSession = createAsyncThunk(
+  "auth/authenticateSession",
+  async () => {
+    try {
+      const { data }: { data: User } = await instance.get(
+        "/auth/authenticate",
+        { withCredentials: true }
+      );
+
+      return data;
+    } catch (error) {
+      const { response } = error as { response: { data: { message: string } } };
       throw new Error(response.data.message);
     }
   }
