@@ -1,0 +1,61 @@
+@import "../../../App.scss";
+
+.container {
+  position: absolute;
+  width: 21.764rem;
+  top: 6rem;
+  @include box-shadow;
+  background-color: $white;
+  z-index: 100;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  animation: slideIn 0.2s ease-in-out;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.categories-section {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+}
+
+.title {
+  border-bottom: 2px solid $inputBorder;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.link {
+  color: $darkGray;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@include respond-above(lg) {
+  .categories-section {
+    display: none;
+  }
+
+  .link:hover {
+    background-color: hsla(22, 65%, 57%, 0.25);
+    color: $primary;
+  }
+}
