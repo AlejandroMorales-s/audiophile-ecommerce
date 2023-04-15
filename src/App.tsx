@@ -1,20 +1,27 @@
+import { useEffect } from "react";
 import "./App.scss";
-import { Routes, Route } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+//* Routes
+import AppRoutes from "./AppRoutes";
+//* Redux
+import { useAppDispatch } from "./store";
 import { useSelector } from "react-redux";
 import { selectNotificationStatus } from "./reducers/notification/notificationReducer";
+import { authenticateSession } from "./reducers/auth/authAsyncThunks";
+//* Components
 import Notification from "./components/common/modals/Notification";
 
 const App = () => {
   const notificationOpen = useSelector(selectNotificationStatus);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(authenticateSession());
+  }, []);
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <AppRoutes />
       {notificationOpen && <Notification />}
     </>
   );
