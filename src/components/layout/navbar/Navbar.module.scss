@@ -1,0 +1,103 @@
+@import "../../../App.scss";
+
+.background {
+  background-color: $black;
+  width: 100%;
+  border-bottom: 1px solid $darkGray;
+}
+
+.navbar {
+  padding: 3.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: $containerMaxWidth;
+  margin: 0 auto;
+}
+
+.hamburger-mobile-container {
+  position: relative;
+}
+
+.categories-container {
+  gap: 3.4rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.username-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  &:hover {
+    .username-icon {
+      color: $primary;
+      fill: $primary;
+    }
+    .login-link {
+      color: $primary;
+    }
+  }
+}
+
+.username-icon {
+  transition: all 0.1s ease-in-out;
+  fill: $white;
+  font-size: 2.25rem;
+}
+
+.login-link {
+  transition: all 0.1s ease-in-out;
+  display: none;
+  color: $white;
+  min-width: fit-content;
+}
+
+.icon {
+  color: $white;
+  fill: $white;
+  font-size: 2.25rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    color: $primary;
+    fill: $primary;
+  }
+}
+
+@include respond-above(sm) {
+  .background {
+    border-bottom: none;
+  }
+  .navbar {
+    border-bottom: 1px solid $darkGray;
+  }
+}
+
+@include respond-above(md) {
+  .hamburger-icon {
+    display: none;
+  }
+  .categories-container,
+  .username-container {
+    display: flex;
+  }
+}
+
+@include respond-above(lg) {
+  .login-link {
+    display: block;
+  }
+}
