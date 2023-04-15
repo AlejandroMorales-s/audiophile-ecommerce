@@ -1,5 +1,10 @@
 import { createSlice, ActionReducerMapBuilder } from "@reduxjs/toolkit";
-import { createUser, loginWithEmail } from "./authAsyncThunks";
+import {
+  createUser,
+  loginWithEmail,
+  authenticateSession,
+  logout,
+} from "./authAsyncThunks";
 import { InitialState } from "./interfaces";
 
 //* Initial state
@@ -14,6 +19,7 @@ const options = {
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+    //* Create user
     builder.addCase(createUser.pending, (state) => {
       state.isLoading = true;
     });
@@ -26,6 +32,7 @@ const options = {
     builder.addCase(createUser.rejected, (state) => {
       state.isLoading = false;
     });
+    //* Login with email and password
     builder.addCase(loginWithEmail.pending, (state) => {
       state.isLoading = true;
     });
@@ -36,6 +43,31 @@ const options = {
       state.isLogged = true;
     });
     builder.addCase(loginWithEmail.rejected, (state, action) => {
+      state.isLoading = false;
+    });
+    //* Authenticate session
+    builder.addCase(authenticateSession.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(authenticateSession.fulfilled, (state, action) => {
+      const { payload } = action;
+      state.isLoading = false;
+      state.user = payload;
+      state.isLogged = true;
+    });
+    builder.addCase(authenticateSession.rejected, (state) => {
+      state.isLoading = false;
+    });
+    //* Logout
+    builder.addCase(logout.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(logout.fulfilled, (state) => {
+      state.isLoading = false;
+      state.user = null;
+      state.isLogged = false;
+    });
+    builder.addCase(logout.rejected, (state) => {
       state.isLoading = false;
     });
   },
