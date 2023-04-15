@@ -10,6 +10,7 @@ import { createUser } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 interface Values {
   firstName?: string;
@@ -27,6 +28,8 @@ export default function SignUp() {
 
   const dispatch = useAppDispatch();
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (
     values: Values,
     { setSubmitting }: FormikHelpers<Values>
@@ -40,7 +43,12 @@ export default function SignUp() {
       return;
     }
 
-    dispatch(createUser(values)).then(() => setSubmitting(false));
+    dispatch(createUser(values)).then((res) => {
+      setSubmitting(false);
+      if (res.payload) {
+        navigate("/");
+      }
+    });
   };
 
   return (

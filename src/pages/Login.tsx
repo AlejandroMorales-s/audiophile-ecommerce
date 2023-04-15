@@ -10,6 +10,7 @@ import { loginWithEmail } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 interface Values {
   email: string;
@@ -24,6 +25,7 @@ export default function Login() {
   const [inputErrors, setInputErrors] = useState<InputErrors>({});
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (
     values: Values,
@@ -38,7 +40,12 @@ export default function Login() {
       return;
     }
 
-    dispatch(loginWithEmail(values)).then(() => setSubmitting(false));
+    dispatch(loginWithEmail(values)).then((res) => {
+      setSubmitting(false);
+      if (res.payload) {
+        navigate("/");
+      }
+    });
   };
 
   return (
