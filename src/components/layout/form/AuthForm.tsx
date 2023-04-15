@@ -32,11 +32,11 @@ interface Props {
 const links = {
   login: {
     text: "Don't have an account? Sign up",
-    link: "/signup",
+    link: "/auth/sign-up",
   },
   signup: {
     text: "Already have an account? Login",
-    link: "/login",
+    link: "/auth/login",
   },
 };
 
