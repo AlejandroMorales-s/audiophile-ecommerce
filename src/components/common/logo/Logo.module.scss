@@ -4,4 +4,22 @@
   color: $white;
   font-size: 2.5rem;
   font-weight: $bold;
+  flex-grow: 1;
+  text-align: center;
+}
+
+@include respond-above(sm) {
+  .logo {
+    width: 100%;
+    padding-left: 4.2rem;
+    text-align: unset;
+  }
+}
+
+@include respond-above(lg) {
+  .logo {
+    flex-grow: unset;
+    width: auto;
+    padding-left: 0;
+  }
 }
