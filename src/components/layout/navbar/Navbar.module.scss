@@ -71,10 +71,6 @@
   font-size: 2.25rem;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
-  &:hover {
-    color: $primary;
-    fill: $primary;
-  }
 }
 
 @include respond-above(sm) {
@@ -87,6 +83,10 @@
 }
 
 @include respond-above(md) {
+  .icon:hover {
+    color: $primary;
+    fill: $primary;
+  }
   .hamburger-icon {
     display: none;
   }
