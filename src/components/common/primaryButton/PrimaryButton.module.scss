@@ -9,14 +9,7 @@
   color: $white;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
-  width: 100%;
-}
-
-@include respond-above(sm) {
-  .button {
-    width: fit-content;
-    align-self: flex-end;
-  }
+  width: fit-content;
 }
 
 @include respond-above(lg) {
