@@ -1,0 +1,36 @@
+@import "../../../App.scss";
+
+button {
+  padding: 1.5rem 3rem;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: $bold;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  width: fit-content;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.first-variant {
+  background-color: $black;
+  color: $white;
+}
+
+.second-variant {
+  background-color: transparent;
+  border: 1.5px solid $black;
+  color: $black;
+}
+
+@include respond-above(lg) {
+  .first-variant:hover {
+    background-color: transparent;
+    border: 1.5px solid $black;
+    color: $black;
+  }
+  .second-variant:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
