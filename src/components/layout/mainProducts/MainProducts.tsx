@@ -34,6 +34,7 @@ const MainProducts = () => {
               const { url, device } = image;
               return (
                 <img
+                  key={device}
                   className={styles[`image-${device}`]}
                   src={url}
                   alt="speaker"
