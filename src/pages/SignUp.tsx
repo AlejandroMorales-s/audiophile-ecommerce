@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //* Components
 import Input from "../components/common/input/Input";
 import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
@@ -9,8 +10,6 @@ import { useAppDispatch } from "../store";
 import { createUser } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
-import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
 
 interface Values {
   firstName?: string;
@@ -52,40 +51,39 @@ export default function SignUp() {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Sign Up | audiophile</title>
-      </Helmet>
-      <AuthTemplate handleSubmit={handleSubmit} authType="signup">
-        <Input
-          name="firstName"
-          label="First Name"
-          type="text"
-          placeholder="John"
-          inputError={inputErrors.firstName}
-        />
-        <Input
-          inputError={inputErrors.lastName}
-          name="lastName"
-          label="Last Name"
-          type="text"
-          placeholder="Doe"
-        />
-        <Input
-          name="email"
-          label="Email"
-          type="email"
-          placeholder="example@example.com"
-          inputError={inputErrors.email}
-        />
-        <Input
-          inputError={inputErrors.password}
-          name="password"
-          label="password"
-          type="password"
-          placeholder="********"
-        />
-      </AuthTemplate>
-    </>
+    <AuthTemplate
+      pageTitle="Sign Up"
+      handleSubmit={handleSubmit}
+      authType="signup"
+    >
+      <Input
+        name="firstName"
+        label="First Name"
+        type="text"
+        placeholder="John"
+        inputError={inputErrors.firstName}
+      />
+      <Input
+        inputError={inputErrors.lastName}
+        name="lastName"
+        label="Last Name"
+        type="text"
+        placeholder="Doe"
+      />
+      <Input
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="example@example.com"
+        inputError={inputErrors.email}
+      />
+      <Input
+        inputError={inputErrors.password}
+        name="password"
+        label="password"
+        type="password"
+        placeholder="********"
+      />
+    </AuthTemplate>
   );
 }

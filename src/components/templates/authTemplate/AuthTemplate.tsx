@@ -6,10 +6,12 @@ import LogoNavbar from "../../layout/logoNavbar/LogoNavbar";
 import { FormikHelpers } from "formik";
 //* Styles
 import styles from "./AuthTemplate.module.scss";
+import { Helmet } from "react-helmet-async";
 
 interface Props {
   children: React.ReactNode;
   authType: "login" | "signup";
+  pageTitle: string;
   handleSubmit: (
     values: {
       firstName?: string;
@@ -26,9 +28,17 @@ interface Props {
   ) => void;
 }
 
-const AuthTemplate: FC<Props> = ({ authType, children, handleSubmit }) => {
+const AuthTemplate: FC<Props> = ({
+  authType,
+  children,
+  handleSubmit,
+  pageTitle,
+}) => {
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title>{pageTitle} | audiophile</title>
+      </Helmet>
       <LogoNavbar />
       <div className={styles["form-container"]}>
         <AuthForm

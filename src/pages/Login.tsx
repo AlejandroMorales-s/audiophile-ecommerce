@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //* Components
 import Input from "../components/common/input/Input";
 import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
@@ -9,8 +10,6 @@ import { useAppDispatch } from "../store";
 import { loginWithEmail } from "../reducers/auth/authAsyncThunks";
 //* Helpers
 import { checkObjectOfInputs } from "../helpers";
-import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
 
 interface Values {
   email: string;
@@ -49,26 +48,25 @@ export default function Login() {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Login | audiophile</title>
-      </Helmet>
-      <AuthTemplate handleSubmit={handleSubmit} authType="login">
-        <Input
-          name="email"
-          label="Email"
-          type="email"
-          placeholder="example@example.com"
-          inputError={inputErrors.email}
-        />
-        <Input
-          name="password"
-          label="password"
-          type="password"
-          placeholder="********"
-          inputError={inputErrors.password}
-        />
-      </AuthTemplate>
-    </>
+    <AuthTemplate
+      handleSubmit={handleSubmit}
+      pageTitle="Login"
+      authType="login"
+    >
+      <Input
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="example@example.com"
+        inputError={inputErrors.email}
+      />
+      <Input
+        name="password"
+        label="password"
+        type="password"
+        placeholder="********"
+        inputError={inputErrors.password}
+      />
+    </AuthTemplate>
   );
 }
