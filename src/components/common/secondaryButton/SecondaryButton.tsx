@@ -10,7 +10,13 @@ const SecondaryButton: FC<Props> = ({
   buttonVariant = "first-variant",
   text,
 }) => {
-  return <button className={styles[buttonVariant]}>{text}</button>;
+  return (
+    <button
+      className={[styles[buttonVariant], styles["secondary-button"]].join(" ")}
+    >
+      {text}
+    </button>
+  );
 };
 
 export default SecondaryButton;
