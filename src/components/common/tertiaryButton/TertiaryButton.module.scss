@@ -1,0 +1,28 @@
+@import "../../../App.scss";
+
+.tertiary-button {
+  text-transform: uppercase;
+  font-weight: $bold;
+  font-size: 1.3rem;
+  color: $textColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  .tertiary-button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: $primary;
+    stroke-width: 4rem;
+    stroke: $primary;
+  }
+}
+
+@include respond-above(md) {
+  .tertiary-button:hover {
+    color: $primary;
+  }
+}
