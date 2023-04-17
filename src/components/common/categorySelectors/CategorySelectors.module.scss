@@ -1,0 +1,72 @@
+@import "../../../App.scss";
+
+.category-selectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6.6rem;
+  width: 90%;
+  margin: 0 auto;
+  max-width: $containerMaxWidth;
+  margin-top: 9rem;
+}
+
+.category-selector {
+  background-color: $gray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  border-radius: 0.8rem;
+  height: 16.5rem;
+  position: relative;
+  gap: 1.7rem;
+  padding-bottom: 2.2rem;
+  img {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 1.5rem 1.5rem rgba($color: $black, $alpha: 0.45));
+  }
+  p {
+    font-weight: $bold;
+    color: $black;
+    text-transform: uppercase;
+  }
+}
+
+@include respond-above(sm) {
+  .category-selectors {
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 14.6rem;
+  }
+  .category-selector {
+    width: 22.3rem;
+    height: 16.5rem;
+  }
+}
+
+@include respond-above(md) {
+  .category-selectors {
+    gap: 3rem;
+    margin-top: 17rem;
+  }
+  .category-selector {
+    width: 35rem;
+    height: 20.4rem;
+    padding: 3rem;
+    img {
+      top: -6rem;
+      height: 12.5rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}
