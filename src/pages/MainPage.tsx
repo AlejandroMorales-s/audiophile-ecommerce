@@ -1,22 +1,17 @@
-import { Helmet } from "react-helmet-async";
-import Navbar from "../components/layout/navbar/Navbar";
-import Header from "../components/layout/mainHeader/Header";
 import MainProducts from "../components/layout/mainProducts/MainProducts";
-import Footer from "../components/common/footer/Footer";
 import AboutSection from "../components/common/aboutSection/AboutSection";
+import CategorySelectors from "../components/common/categorySelectors/CategorySelectors";
+import GeneralTemplate from "../components/templates/generalTemplate/GeneralTemplate";
+import Header from "../components/layout/mainHeader/Header";
 
 const MainPage = () => {
   return (
-    <>
-      <Helmet>
-        <title>Home | audiophile</title>
-      </Helmet>
-      <Navbar />
+    <GeneralTemplate title="Home">
       <Header />
+      <CategorySelectors />
       <MainProducts />
       <AboutSection />
-      <Footer />
-    </>
+    </GeneralTemplate>
   );
 };
 
