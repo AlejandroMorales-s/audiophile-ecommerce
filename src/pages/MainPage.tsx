@@ -3,6 +3,7 @@ import Navbar from "../components/layout/navbar/Navbar";
 import Header from "../components/layout/mainHeader/Header";
 import MainProducts from "../components/layout/mainProducts/MainProducts";
 import Footer from "../components/common/footer/Footer";
+import AboutSection from "../components/common/aboutSection/AboutSection";
 
 const MainPage = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage = () => {
       <Navbar />
       <Header />
       <MainProducts />
+      <AboutSection />
       <Footer />
     </>
   );
