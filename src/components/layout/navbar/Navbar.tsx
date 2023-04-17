@@ -34,7 +34,9 @@ const Navbar = () => {
           {menuMobileOpen && <HamburgerMenu menuOpenedInMobile />}
         </div>
 
-        <Logo />
+        <div className={styles["logo-container"]}>
+          <Logo />
+        </div>
 
         <div className={styles["categories-container"]}>
           <NavbarPages inHamburgerMenu={false} />

@@ -20,6 +20,11 @@
   position: relative;
 }
 
+.logo-container {
+  flex-grow: 1;
+  text-align: center;
+}
+
 .categories-container {
   gap: 3.4rem;
   display: none;
@@ -80,6 +85,11 @@
   .navbar {
     border-bottom: 1px solid $darkGray;
   }
+  .logo-container {
+    width: 100%;
+    padding-left: 4.2rem;
+    text-align: unset;
+  }
 }
 
 @include respond-above(md) {
@@ -93,6 +103,11 @@
   .categories-container,
   .username-container {
     display: flex;
+  }
+  .logo-container {
+    flex-grow: unset;
+    width: auto;
+    padding-left: 0;
   }
 }
 
