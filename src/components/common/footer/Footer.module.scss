@@ -1,0 +1,110 @@
+@import "../../../App.scss";
+
+footer {
+  background-color: $veryDarkGray;
+}
+
+.footer-info-container {
+  width: 90%;
+  max-width: $containerMaxWidth;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, min-content);
+  gap: 4.8rem 0;
+  grid-auto-flow: row;
+  padding: 5.2rem 0 3.8rem 0;
+  text-align: center;
+  position: relative;
+  .copyright {
+    font-weight: $bold;
+  }
+}
+
+.rectangle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 0.4rem;
+  background-color: $primary;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    color: $white;
+  }
+}
+
+.social-media-links {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  .social-media-icon {
+    font-size: 2.4rem;
+    fill: $white;
+  }
+}
+
+@include respond-above(sm) {
+  .rectangle {
+    left: 0;
+    transform: translateX(0);
+  }
+  .footer-info-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    gap: 3.2rem 0;
+    text-align: left;
+    padding: 6rem 0 4.6rem 0;
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c c"
+      "d e";
+  }
+
+  .logo-container {
+    grid-area: a;
+  }
+
+  .links-container {
+    flex-direction: row;
+    justify-content: left;
+    grid-area: b;
+  }
+  .description {
+    grid-area: c;
+  }
+  .social-media-links {
+    justify-content: flex-end;
+  }
+}
+
+@include respond-above(md) {
+  .footer-info-container {
+    grid-template-rows: repeat(3, min-content);
+    gap: 4rem 0;
+    padding: 7.5rem 0 4.8rem 0;
+    grid-template-areas:
+      "a b"
+      "c d"
+      "e e";
+  }
+  .links-container {
+    justify-content: flex-end;
+    gap: 3.4rem;
+  }
+  .description {
+    grid-area: c;
+  }
+  .social-media-links {
+    align-items: end;
+    grid-area: d;
+  }
+}
