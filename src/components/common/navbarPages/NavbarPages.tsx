@@ -4,9 +4,9 @@ import styles from "./NavbarPages.module.scss";
 
 const pages = [
   { name: "Home", path: "/" },
-  { name: "Headphones", path: "/headphones" },
-  { name: "Speakers", path: "/speakers" },
-  { name: "Earphones", path: "/earphones" },
+  { name: "Headphones", path: "/products/category/headphones" },
+  { name: "Speakers", path: "/products/category/speakers" },
+  { name: "Earphones", path: "/products/category/earphones" },
 ];
 
 interface NavbarPagesProps {

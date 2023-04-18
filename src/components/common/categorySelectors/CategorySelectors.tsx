@@ -1,25 +1,28 @@
-import styles from "./CategorySelectors.module.scss";
+import { Link } from "react-router-dom";
+//* Components
+import TertiaryButton from "../tertiaryButton/TertiaryButton";
+//* Assets
 import headphones from "../../assets/common/headphones.png";
 import speakers from "../../assets/common/speaker.png";
 import earphones from "../../assets/common/earphone.png";
-import TertiaryButton from "../tertiaryButton/TertiaryButton";
-import { Link } from "react-router-dom";
+//* Styles
+import styles from "./CategorySelectors.module.scss";
 
 const categories = [
   {
     name: "Headphones",
     imageLink: headphones,
-    link: "/headphones",
+    link: "/products/category/headphones",
   },
   {
     name: "Speakers",
     imageLink: speakers,
-    link: "/speakers",
+    link: "/products/category/speakers",
   },
   {
     name: "Earphones",
     imageLink: earphones,
-    link: "/earphones",
+    link: "/products/category/earphones",
   },
 ];
 
