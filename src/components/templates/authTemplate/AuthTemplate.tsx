@@ -2,8 +2,6 @@ import React, { FC } from "react";
 //* Components
 import AuthForm from "../../layout/form/AuthForm";
 import LogoNavbar from "../../layout/logoNavbar/LogoNavbar";
-//* Formik
-import { FormikHelpers } from "formik";
 //* Styles
 import styles from "./AuthTemplate.module.scss";
 import { Helmet } from "react-helmet-async";
@@ -12,20 +10,12 @@ interface Props {
   children: React.ReactNode;
   authType: "login" | "signup";
   pageTitle: string;
-  handleSubmit: (
-    values: {
-      firstName?: string;
-      lastName?: string;
-      email: string;
-      password: string;
-    },
-    formikHelpers: FormikHelpers<{
-      firstName?: string;
-      lastName?: string;
-      email: string;
-      password: string;
-    }>
-  ) => void;
+  handleSubmit: (values: {
+    firstName?: string;
+    lastName?: string;
+    email: string;
+    password: string;
+  }) => void;
 }
 
 const AuthTemplate: FC<Props> = ({

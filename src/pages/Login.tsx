@@ -1,50 +1,19 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 //* Components
 import Input from "../components/common/input/Input";
 import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
-//* Formik
-import { FormikHelpers } from "formik";
-//* Redux
-import { useAppDispatch } from "../store";
-import { loginWithEmail } from "../reducers/auth/authAsyncThunks";
-//* Helpers
-import { checkObjectOfInputs } from "../helpers";
+//* Hooks
+import useAuth from "../hooks/useAuth";
 
 interface Values {
   email: string;
   password: string;
 }
 
-interface InputErrors {
-  [key: string]: string;
-}
-
 export default function Login() {
-  const [inputErrors, setInputErrors] = useState<InputErrors>({});
+  const { inputErrors, setInputs } = useAuth({ type: "login" });
 
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const handleSubmit = (
-    values: Values,
-    { setSubmitting }: FormikHelpers<Values>
-  ) => {
-    const currentInputErrors = checkObjectOfInputs(values);
-
-    setInputErrors(currentInputErrors);
-
-    if (Object.keys(currentInputErrors).length > 0) {
-      setSubmitting(false);
-      return;
-    }
-
-    dispatch(loginWithEmail(values)).then((res) => {
-      setSubmitting(false);
-      if (res.payload) {
-        navigate("/");
-      }
-    });
+  const handleSubmit = (values: Values) => {
+    setInputs(values);
   };
 
   return (

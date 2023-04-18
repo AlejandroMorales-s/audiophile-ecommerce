@@ -1,15 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 //* Components
 import Input from "../components/common/input/Input";
 import AuthTemplate from "../components/templates/authTemplate/AuthTemplate";
-//* Formik
-import { FormikHelpers } from "formik";
-//* Redux
-import { useAppDispatch } from "../store";
-import { createUser } from "../reducers/auth/authAsyncThunks";
-//* Helpers
-import { checkObjectOfInputs } from "../helpers";
+
+//* Hooks
+import useAuth from "../hooks/useAuth";
 
 interface Values {
   firstName?: string;
@@ -18,36 +12,11 @@ interface Values {
   password: string;
 }
 
-interface InputErrors {
-  [key: string]: string;
-}
-
 export default function SignUp() {
-  const [inputErrors, setInputErrors] = useState<InputErrors>({});
+  const { inputErrors, setInputs } = useAuth({ type: "sign-up" });
 
-  const dispatch = useAppDispatch();
-
-  const navigate = useNavigate();
-
-  const handleSubmit = async (
-    values: Values,
-    { setSubmitting }: FormikHelpers<Values>
-  ) => {
-    const currentInputErrors = checkObjectOfInputs(values);
-
-    setInputErrors(currentInputErrors);
-
-    if (Object.keys(currentInputErrors).length > 0) {
-      setSubmitting(false);
-      return;
-    }
-
-    dispatch(createUser(values)).then((res) => {
-      setSubmitting(false);
-      if (res.payload) {
-        navigate("/");
-      }
-    });
+  const handleSubmit = async (values: Values) => {
+    setInputs(values);
   };
 
   return (
