@@ -10,6 +10,7 @@
   margin: 0 auto;
   max-width: $containerMaxWidth;
   margin-top: 9rem;
+  margin-bottom: 12rem;
 }
 
 .category-selector {
@@ -45,6 +46,7 @@
     flex-direction: row;
     gap: 1rem;
     margin-top: 14.6rem;
+    margin-bottom: 9.6rem;
   }
   .category-selector {
     width: 22.3rem;
@@ -55,7 +57,7 @@
 @include respond-above(md) {
   .category-selectors {
     gap: 3rem;
-    margin-top: 17rem;
+    margin: 17rem auto;
   }
   .category-selector {
     width: 35rem;
