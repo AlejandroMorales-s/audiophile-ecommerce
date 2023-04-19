@@ -5,6 +5,15 @@
   position: relative;
 }
 
+.header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+}
+
 .image-container {
   background-image: url("../../assets/mainProducts/mobile/image-header.jpg");
   background-repeat: no-repeat;

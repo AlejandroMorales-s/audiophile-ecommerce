@@ -17,7 +17,9 @@ const GeneralTemplate: FC<Props> = ({ children, title }) => {
         <title>{title} | audiophile</title>
       </Helmet>
       <Navbar />
-      <main>{children}</main>
+      <main style={{ width: "90%", maxWidth: "1100px", margin: "0 auto" }}>
+        {children}
+      </main>
       <Footer />
     </>
   );
