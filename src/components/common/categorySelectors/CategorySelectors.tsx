@@ -32,7 +32,7 @@ const CategorySelectors = () => {
       {categories.map((category) => {
         const { name, imageLink, link } = category;
         return (
-          <div className={styles["category-selector"]}>
+          <div key={name} className={styles["category-selector"]}>
             <img src={imageLink} alt={name} />
             <p className="regular-text">{name}</p>
             <Link to={link}>
