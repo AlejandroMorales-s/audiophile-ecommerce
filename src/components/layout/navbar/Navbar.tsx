@@ -24,7 +24,7 @@ const Navbar = () => {
   const userLogged = useSelector(selectLoggedUser);
   const user = useSelector(selectUserData);
   return (
-    <div className={styles.background}>
+    <nav className={styles.background}>
       <div className={styles.navbar}>
         <div className={styles["hamburger-mobile-container"]}>
           <GiHamburgerMenu
@@ -67,7 +67,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 
