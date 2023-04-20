@@ -1,0 +1,57 @@
+@import "../../../App.scss";
+
+.product-info-container {
+  margin: 8.8rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8.8rem;
+}
+
+.product-info-includes,
+.product-info-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.product-info-container h3 {
+  font-size: 2.4rem;
+}
+
+.product-info-includes ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  li {
+    span {
+      color: $primary;
+      font-weight: $bold;
+    }
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    text-transform: capitalize;
+  }
+}
+
+@include respond-above(sm) {
+  .product-info-container h3 {
+    font-size: 3.2rem;
+  }
+  .product-info-includes {
+    flex-direction: row;
+    gap: 17rem;
+  }
+}
+
+@include respond-above(md) {
+  .product-info-container {
+    flex-direction: row;
+    gap: 12.5rem;
+  }
+  .product-info-includes {
+    flex-direction: column;
+    min-width: 35rem;
+    gap: 3.2rem;
+  }
+}
