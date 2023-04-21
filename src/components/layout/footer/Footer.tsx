@@ -1,6 +1,6 @@
 //* Components
-import Logo from "../logo/Logo";
-import NavbarPages from "../navbarPages/NavbarPages";
+import Logo from "../../common/logo/Logo";
+import NavbarPages from "../../common/navbarPages/NavbarPages";
 //* Icons
 import {
   AiFillFacebook,

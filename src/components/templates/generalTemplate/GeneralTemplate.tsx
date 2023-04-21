@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Helmet } from "react-helmet-async";
 //* Components
 import Navbar from "../../layout/navbar/Navbar";
-import Footer from "../../common/footer/Footer";
+import Footer from "../../layout/footer/Footer";
 
 interface Props {
   children: React.ReactNode;
