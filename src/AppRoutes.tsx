@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import ProductsCategory from "./pages/ProductsCategory";
+import ProductDetails from "./pages/ProductDetails";
 
 const AppRoutes = () => {
   return (
@@ -13,11 +15,20 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
       </Route>
       <Route path="/products">
-        <Route path=":id" element={<h1>Product Details</h1>} />
+        {/* <Route path=":id" element={<ProductDetails />} /> */}
         <Route path="category">
-          <Route path="headphones" element={<div>headphones</div>} />
-          <Route path="speakers" element={<div>speakers</div>} />
-          <Route path="earphones" element={<div>earphones</div>} />
+          <Route
+            path="headphones"
+            element={<ProductsCategory categoryName="Headphones" />}
+          />
+          <Route
+            path="speakers"
+            element={<ProductsCategory categoryName="Speakers" />}
+          />
+          <Route
+            path="earphones"
+            element={<ProductsCategory categoryName="Earphones" />}
+          />
         </Route>
       </Route>
     </Routes>

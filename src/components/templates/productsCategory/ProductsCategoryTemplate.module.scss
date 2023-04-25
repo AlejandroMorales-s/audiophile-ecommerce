@@ -1,0 +1,55 @@
+@import "../../../App.scss";
+
+.category-header-container {
+  margin-bottom: 6.4rem;
+  position: relative;
+  height: 10.9rem;
+}
+
+.category-header {
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $black;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  h2 {
+    color: $white;
+    font-size: 2.8rem;
+  }
+}
+
+.products-category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12rem;
+  margin-bottom: 12rem;
+}
+
+@include respond-above(sm) {
+  .category-header-container {
+    height: 24rem;
+    margin-bottom: 12rem;
+  }
+  .category-header {
+    padding: 9.7rem;
+    h2 {
+      font-size: 4rem;
+    }
+  }
+}
+@include respond-above(md) {
+  .category-header {
+    margin-bottom: 16rem;
+  }
+  .products-category-container {
+    gap: 16.5rem;
+  }
+}
