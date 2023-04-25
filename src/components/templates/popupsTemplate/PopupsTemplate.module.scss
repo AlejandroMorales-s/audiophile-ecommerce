@@ -1,0 +1,18 @@
+@import "../../../App.scss";
+
+.popups-background {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  .popups-container {
+    width: 90%;
+    max-width: $containerMaxWidth;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+}
