@@ -10,6 +10,9 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   width: fit-content;
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 @include respond-above(lg) {
