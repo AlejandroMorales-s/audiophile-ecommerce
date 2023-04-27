@@ -36,7 +36,7 @@ const ProductsCategoryTemplate: FC<Props> = ({ categoryName }) => {
         ) : (
           <>
             {products.map((product) => {
-              return <ProductCard product={product} />;
+              return <ProductCard key={product.id} product={product} />;
             })}
           </>
         )}
