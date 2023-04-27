@@ -8,6 +8,7 @@ export interface ProductFromDb {
   description: string;
   includes: Include[];
   features: string;
+  image_url: string;
 }
 
 export interface Include {
