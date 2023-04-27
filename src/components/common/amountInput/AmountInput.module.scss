@@ -1,0 +1,48 @@
+@import "../../../App.scss";
+
+.number-input-container {
+  position: relative;
+  width: fit-content;
+}
+
+.number-input {
+  background-color: $gray;
+  border: none;
+  padding: 1.5rem 5.2rem;
+  width: 12rem;
+  font-size: 1.3rem;
+  font-weight: $bold;
+  text-align: center;
+  &:focus {
+    outline: none;
+  }
+}
+
+.number-input-plus,
+.number-input-minus {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  stroke-width: 5rem;
+  stroke: hsl(0, 0%, 71%);
+  fill: hsl(0, 0%, 71%);
+  // padding: 0 1rem;
+  height: 100%;
+}
+
+.number-input-minus {
+  left: 1.5rem;
+}
+
+.number-input-plus {
+  right: 1.5rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  margin: 0;
+}
