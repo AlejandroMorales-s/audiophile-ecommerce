@@ -1,0 +1,60 @@
+@import "../../../App.scss";
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+  width: 100%;
+}
+.product-card-img-container {
+  width: 100%;
+  height: 35.2rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.product-card-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4rem;
+  width: 100%;
+}
+
+.product-card-price {
+  font-size: 1.8rem;
+  font-weight: $bold;
+  color: $black;
+}
+
+.product-card-form {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+@include respond-above(sm) {
+  .product-card-info-container {
+    width: 57.2rem;
+  }
+}
+
+@include respond-above(md) {
+  .product-card {
+    flex-direction: row;
+    gap: 12.5rem;
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+  .product-card-img-container {
+    width: 54rem;
+    height: 56rem;
+  }
+  .product-card-info-container {
+    gap: 3.6rem;
+    width: 43.5rem;
+  }
+}
