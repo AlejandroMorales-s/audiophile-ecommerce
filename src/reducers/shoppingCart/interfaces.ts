@@ -8,4 +8,5 @@ export interface ShoppingCartProduct {
   price: number;
   product_id: number;
   quantity: number;
+  image_url: string;
 }
