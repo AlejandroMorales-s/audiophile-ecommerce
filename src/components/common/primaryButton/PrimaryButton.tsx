@@ -7,6 +7,7 @@ interface Props {
   type?: "submit" | "button";
   disabled?: boolean;
   isLoading?: boolean;
+  handleClick?: () => void;
 }
 
 const PrimaryButton: FC<Props> = ({
@@ -14,9 +15,15 @@ const PrimaryButton: FC<Props> = ({
   type = "button",
   disabled,
   isLoading,
+  handleClick,
 }) => {
   return (
-    <button className={styles.button} disabled={disabled} type={type}>
+    <button
+      onClick={handleClick}
+      className={styles.button}
+      disabled={disabled}
+      type={type}
+    >
       {isLoading ? <Loader /> : text}
     </button>
   );
