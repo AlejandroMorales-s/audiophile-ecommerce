@@ -4,6 +4,8 @@
   background-color: $black;
   width: 100%;
   border-bottom: 1px solid $darkGray;
+  position: relative;
+  z-index: 20;
 }
 
 .navbar {
@@ -14,10 +16,6 @@
   width: 90%;
   max-width: $containerMaxWidth;
   margin: 0 auto;
-}
-
-.hamburger-mobile-container {
-  position: relative;
 }
 
 .logo-container {
@@ -37,7 +35,6 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  position: relative;
 }
 
 .username-container {
@@ -97,7 +94,7 @@
     color: $primary;
     fill: $primary;
   }
-  .hamburger-mobile-container {
+  .hamburger-icon {
     display: none;
   }
   .categories-container,
