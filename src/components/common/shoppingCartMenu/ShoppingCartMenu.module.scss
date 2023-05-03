@@ -1,0 +1,74 @@
+@import "../../../App.scss";
+
+.shopping-cart-menu {
+  position: absolute;
+  width: 100%;
+  max-width: 39.7rem;
+  top: 12rem;
+  @include box-shadow;
+  background-color: $white;
+  z-index: 100;
+  padding: 3rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  animation: slideIn 0.2s ease-in-out;
+  transform-origin: top right;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      text-decoration: underline;
+    }
+  }
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    max-height: 32rem;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      appearance: none;
+    }
+    &::-webkit-scrollbar {
+      width: 0.75rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary;
+      border-radius: 2rem;
+    }
+  }
+  .total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      text-transform: uppercase;
+    }
+    .price {
+      font-weight: $bold;
+      color: $black;
+    }
+  }
+  button {
+    width: 100%;
+  }
+}
+
+@include respond-above(sm) {
+  .shopping-cart-menu {
+    right: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

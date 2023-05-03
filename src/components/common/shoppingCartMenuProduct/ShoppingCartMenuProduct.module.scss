@@ -1,0 +1,29 @@
+@import "../../../App.scss";
+
+.product {
+  display: flex;
+  gap: 1.9rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .product-details-container {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    .image {
+      min-width: 6.4rem;
+      height: 6.4rem;
+      background-color: $gray;
+      border-radius: 0.8rem;
+      overflow: hidden;
+    }
+    .details {
+      p {
+        font-weight: $bold;
+      }
+      .name {
+        color: $black;
+      }
+    }
+  }
+}
