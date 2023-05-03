@@ -1,11 +1,15 @@
-import { createSlice, ActionReducerMapBuilder } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  ActionReducerMapBuilder,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import {
   createUser,
   loginWithEmail,
   authenticateSession,
   logout,
 } from "./authAsyncThunks";
-import { InitialState } from "./interfaces";
+import { InitialState, User } from "./interfaces";
 
 //* Initial state
 const initialState: InitialState = {
@@ -17,7 +21,13 @@ const initialState: InitialState = {
 const options = {
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    setUserInfo: (state: InitialState, action: PayloadAction<User>) => {
+      state.isLoading = true;
+      state.user = action.payload;
+      state.isLoading = false;
+    },
+  },
   extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
     //* Create user
     builder.addCase(createUser.pending, (state) => {
@@ -74,6 +84,8 @@ const options = {
 };
 
 export const authSlice = createSlice(options);
+
+export const { setUserInfo } = authSlice.actions;
 
 //* Selectors
 export const selectUserData = (state: { auth: InitialState }) =>
