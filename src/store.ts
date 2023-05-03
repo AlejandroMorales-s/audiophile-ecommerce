@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import authReducer from "./reducers/auth/authReducer";
 import notificationReducer from "./reducers/notification/notificationReducer";
 import shoppingCartReducer from "./reducers/shoppingCart/shoppingCartReducer";
+import updateUserReducer from "./reducers/updateUser/updateUserReducer";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     auth: authReducer,
     notification: notificationReducer,
     shoppingCart: shoppingCartReducer,
+    updateUser: updateUserReducer,
   },
 });
 
