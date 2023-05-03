@@ -1,0 +1,35 @@
+@import "../../../App.scss";
+
+.user-settings-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 55rem;
+  border-radius: 0.8rem;
+  margin: 9.7rem auto;
+  padding: 3rem 2.7rem;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  @include box-shadow;
+  .option-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div p:first-of-type {
+      font-weight: $bold;
+      color: $black;
+    }
+  }
+  & > button {
+    background-color: $red;
+    width: 100%;
+  }
+}
+
+@include respond-above(md) {
+  .user-settings-container > button:hover {
+    background-color: $red;
+  }
+}
