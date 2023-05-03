@@ -1,10 +1,7 @@
 import checkInput from "./checkInput";
 
 interface Values {
-  firstName?: string;
-  lastName?: string;
-  email: string;
-  password: string;
+  [key: string]: any;
 }
 
 type ErrorObject = {
