@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./App.scss";
 //* Routes
 import AppRoutes from "./AppRoutes";
@@ -7,9 +8,9 @@ import { useAppDispatch } from "./store";
 import { useSelector } from "react-redux";
 import { selectNotificationStatus } from "./reducers/notification/notificationReducer";
 import { authenticateSession } from "./reducers/auth/authAsyncThunks";
+import { getShoppingCart } from "./reducers/shoppingCart/shoppingCartAsyncThunks";
 //* Components
 import Notification from "./components/common/modals/Notification";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const App = () => {
   const notificationOpen = useSelector(selectNotificationStatus);
@@ -25,6 +26,8 @@ const App = () => {
   useEffect(() => {
     dispatch(authenticateSession()).then((res) => {
       if (!res.payload) return;
+
+      dispatch(getShoppingCart());
 
       if (authRoutes.includes(currentPath)) {
         navigate("/");
