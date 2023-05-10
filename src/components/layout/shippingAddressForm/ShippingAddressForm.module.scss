@@ -1,0 +1,10 @@
+@import "../../../App.scss";
+
+.shipping-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  button {
+    width: 100%;
+  }
+}

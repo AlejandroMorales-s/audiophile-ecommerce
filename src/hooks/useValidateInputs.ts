@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { checkObjectOfInputs } from "../helpers";
 
 interface InputErrors {
-  [key: string]: string;
+  [key: string]: any;
 }
 
 const useValidateInputs = () => {

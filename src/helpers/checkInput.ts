@@ -1,16 +1,23 @@
 import checkInputValidation from "./checkInputValidation";
 
-type ErrorObject = {
-  [key: string]: string;
+type Input = {
+  [key: string]: string | number | undefined;
 };
 
-const checkInput = (input: ErrorObject) => {
+const checkInput = (input: Input) => {
   const key = Object.keys(input)[0];
-  const value = input[key].trim();
-
   const errorObject = {
     [key]: "",
   };
+
+  if (typeof input[key] === "number") return;
+
+  if (typeof input[key] === "undefined") {
+    errorObject[key] = "This field is required";
+    return errorObject;
+  }
+
+  const value = input[key].trim();
 
   if (!value) {
     errorObject[key] = "This field is required";

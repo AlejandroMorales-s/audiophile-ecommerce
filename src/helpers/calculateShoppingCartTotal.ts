@@ -5,7 +5,10 @@ export const calculateShoppingCartTotal = ({
 }: {
   shoppingCart: ShoppingCartProduct[];
 }) => {
-  let total: number = 0;
+  let total = 0;
+  const shipping = 50;
+  let vat = 0;
+  let grandTotal = 0;
 
   shoppingCart.forEach((product) => {
     const { price, quantity } = product;
@@ -14,5 +17,9 @@ export const calculateShoppingCartTotal = ({
     total += currentProductTotal;
   });
 
-  return total;
+  vat = total * 0.2;
+
+  grandTotal = shipping + total;
+
+  return { grandTotal, vat, total, shipping };
 };
