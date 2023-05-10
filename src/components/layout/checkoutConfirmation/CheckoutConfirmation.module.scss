@@ -1,0 +1,69 @@
+@import "../../../App.scss";
+
+.checkout-confirm-container {
+  padding: 3.2rem;
+  background-color: $white;
+  border-radius: 0.8rem;
+  @include box-shadow();
+  width: 100%;
+  max-width: 54rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+  .checkout-confirm-icon {
+    font-size: 6.4rem;
+    color: $primary;
+  }
+  .checkout-confirm-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .checkout-confirm-products {
+    background-color: $gray;
+    padding: 2.4rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+    hr {
+      margin: 1.2rem 0;
+    }
+    & > p {
+      text-align: center;
+      font-weight: $bold;
+      font-size: 1.2rem;
+    }
+  }
+  .checkout-confirm-total {
+    background-color: $black;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-radius: 0 0 0.8rem 0.8rem;
+    p {
+      font-weight: $medium;
+      text-transform: uppercase;
+    }
+    h6 {
+      color: $white;
+    }
+  }
+  button {
+    width: 100%;
+  }
+}
+
+@include respond-above(sm) {
+  .checkout-confirm-details {
+    display: flex;
+    .checkout-confirm-products {
+      border-radius: 0.8rem 0 0 0.8rem;
+    }
+    .checkout-confirm-total {
+      min-width: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 0 0.8rem 0.8rem 0;
+    }
+  }
+}
