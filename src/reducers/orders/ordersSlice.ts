@@ -7,7 +7,7 @@ const initialState: InitialState = {
 };
 
 const options = {
-  name: "",
+  name: "orders",
   initialState,
   reducers: {},
   extraReducers: () => {},
