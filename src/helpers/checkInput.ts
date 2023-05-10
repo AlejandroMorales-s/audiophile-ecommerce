@@ -17,30 +17,36 @@ const checkInput = (input: Input) => {
     return errorObject;
   }
 
-  const value = input[key].trim();
+  const value = input[key];
 
-  if (!value) {
-    errorObject[key] = "This field is required";
-    return errorObject;
-  }
+  if (typeof value === "string") {
+    const trimmedValue = value.trim();
 
-  const types = ["name", "email", "password"];
-
-  types.forEach((type) => {
-    if (key.toLowerCase().includes(type)) {
-      const validName = checkInputValidation(
-        value,
-        type as "name" | "email" | "password"
-      );
-      if (!validName) {
-        errorObject[key] = `Please enter a valid ${type}`;
-      }
+    if (!trimmedValue) {
+      errorObject[key] = "This field is required";
+      return errorObject;
     }
-  });
+
+    const types = ["name", "email", "password"];
+
+    types.forEach((type) => {
+      if (key.toLowerCase().includes(type)) {
+        const validName = checkInputValidation(
+          trimmedValue,
+          type as "name" | "email" | "password"
+        );
+        if (!validName) {
+          errorObject[key] = `Please enter a valid ${type}`;
+        }
+      }
+    });
+  }
 
   if (errorObject[key]) {
     return errorObject;
   }
+
+  return {};
 };
 
 export default checkInput;
