@@ -7,7 +7,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "./Input.module.scss";
 
 type Props = {
-  type: "text" | "password" | "email";
+  type: "text" | "password" | "email" | "number";
   name: string;
   placeholder?: string;
   label: string;

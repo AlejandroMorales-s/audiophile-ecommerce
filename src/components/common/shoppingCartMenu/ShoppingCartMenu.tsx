@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 //* Components
 import PopupsTemplate from "../../templates/popupsTemplate/PopupsTemplate";
 import ShoppingCartMenuProductSkeleton from "../shoppingCartMenuProduct/ShoppingCartMenuProductSkeleton";
@@ -72,14 +73,18 @@ const ShoppingCart = () => {
           <p className={`${styles.price} regular-text`}>
             $
             {shoppingCart &&
-              calculateShoppingCartTotal({ shoppingCart }).toLocaleString()}
+              calculateShoppingCartTotal({
+                shoppingCart,
+              }).grandTotal.toLocaleString()}
           </p>
         </div>
 
-        <PrimaryButton
-          disabled={!shoppingCart || shoppingCart.length < 1}
-          text="Checkout"
-        />
+        <Link to="/checkout">
+          <PrimaryButton
+            disabled={!shoppingCart || !shoppingCart.length}
+            text="Checkout"
+          />
+        </Link>
       </div>
     </PopupsTemplate>
   );

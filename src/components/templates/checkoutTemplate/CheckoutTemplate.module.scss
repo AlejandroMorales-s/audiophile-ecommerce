@@ -1,0 +1,40 @@
+@import "../../../App.scss";
+
+.checkout-container {
+  margin: 9.7rem auto;
+  display: grid;
+  row-gap: 3.2rem;
+  width: 100%;
+  .checkout-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.checkout-form,
+.checkout-summary {
+  border-radius: 0.8rem;
+  padding: 3rem 2.7rem;
+  background-color: $white;
+  @include box-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.checkout-summary {
+  height: fit-content;
+}
+
+.payment-blocked {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@include respond-above(md) {
+  .checkout-container {
+    grid-template-columns: 65% 35%;
+    column-gap: 3rem;
+  }
+}
