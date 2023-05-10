@@ -6,6 +6,7 @@ import authReducer from "./reducers/auth/authReducer";
 import notificationReducer from "./reducers/notification/notificationReducer";
 import shoppingCartReducer from "./reducers/shoppingCart/shoppingCartReducer";
 import updateUserReducer from "./reducers/updateUser/updateUserReducer";
+import ordersReducer from "./reducers/orders/ordersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     notification: notificationReducer,
     shoppingCart: shoppingCartReducer,
     updateUser: updateUserReducer,
+    orders: ordersReducer,
   },
 });
 
