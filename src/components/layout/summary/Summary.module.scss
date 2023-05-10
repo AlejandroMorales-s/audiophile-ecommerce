@@ -1,0 +1,33 @@
+@import "../../../App.scss";
+
+.summary-container,
+.summary-details-container,
+.summary-products,
+.summary-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.summary-products {
+  gap: 2.4rem;
+}
+
+.summary-pricing {
+  gap: 0.8rem;
+  p {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    span {
+      font-weight: $bold;
+      color: $black;
+    }
+    &:last-of-type {
+      margin-top: 1.6rem;
+      span {
+        color: $primary;
+      }
+    }
+  }
+}

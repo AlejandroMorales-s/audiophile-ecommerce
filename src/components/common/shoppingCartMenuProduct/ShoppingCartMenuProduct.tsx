@@ -6,9 +6,10 @@ import styles from "./ShoppingCartMenuProduct.module.scss";
 
 interface Props {
   product: ShoppingCartProduct;
+  inSummary?: boolean;
 }
 
-const ShoppingCartMenuProduct: FC<Props> = ({ product }) => {
+const ShoppingCartMenuProduct: FC<Props> = ({ product, inSummary }) => {
   const { product_id, name, price, quantity, image_url } = product;
 
   return (
@@ -27,7 +28,11 @@ const ShoppingCartMenuProduct: FC<Props> = ({ product }) => {
           </p>
         </div>
       </Link>
-      <AmountInput quantityFromProduct={quantity} />
+      {inSummary ? (
+        <p className="regular-text">x{quantity}</p>
+      ) : (
+        <AmountInput quantityFromProduct={quantity} />
+      )}
     </div>
   );
 };
