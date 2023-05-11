@@ -3,6 +3,7 @@ import { ShoppingCartProduct } from "../shoppingCart/interfaces";
 export interface InitialState {
   orders: Order[] | null;
   isLoading: boolean;
+  orderPricing: Pricing | null;
 }
 
 export interface Order {

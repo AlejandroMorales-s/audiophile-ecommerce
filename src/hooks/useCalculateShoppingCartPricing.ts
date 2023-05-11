@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
-//* Interfaces
-import { Pricing } from "../reducers/orders/interfaces";
+import { useEffect } from "react";
+//* Redux
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "../store";
 import { getOrderAmount } from "../reducers/orders/ordersAsyncThunks";
+import { selectOrderPricing } from "../reducers/orders/ordersSlice";
 
 const useCalculateShoppingCartPricing = () => {
-  const [shoppingCartPricing, setShoppingCartPricing] = useState<Pricing>();
+  const shoppingCartPricing = useSelector(selectOrderPricing);
 
   const dispatch = useAppDispatch();
 
   const calculateShoppingCartPricing = () => {
-    dispatch(getOrderAmount()).then((res) => {
-      if (!res.payload) return;
-      setShoppingCartPricing(res.payload as Pricing);
-    });
+    dispatch(getOrderAmount());
   };
 
   useEffect(calculateShoppingCartPricing, []);
