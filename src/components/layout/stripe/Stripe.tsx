@@ -9,6 +9,7 @@ import StripeForm from "../../common/stripeForm/StripeForm";
 import { useSelector } from "react-redux";
 import { selectShoppingCartProducts } from "../../../reducers/shoppingCart/shoppingCartReducer";
 import { Order } from "../../../reducers/orders/interfaces";
+import instance from "../../../axios";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_API_KEY);
 
@@ -24,13 +25,13 @@ const Stripe: FC<ComponentProps> = ({ orderData }) => {
   useEffect(() => {
     if (!shoppingCart) return;
 
-    fetch("http://localhost:3000/payment/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: shoppingCart }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    instance
+      .post(
+        "payment/create-payment-intent",
+        { items: shoppingCart },
+        { withCredentials: true }
+      )
+      .then(({ data }) => {
         setClientSecret(data.clientSecret);
       });
   }, [shoppingCart]);
