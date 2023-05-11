@@ -1,25 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 //* Redux
 import { useAppDispatch } from "../store";
+import { useSelector } from "react-redux";
+import { selectShoppingCartProducts } from "../reducers/shoppingCart/shoppingCartReducer";
 //* Async Thunks
 import { getShoppingCart } from "../reducers/shoppingCart/shoppingCartAsyncThunks";
-//* Interfaces
-import { ShoppingCartProduct } from "../reducers/shoppingCart/interfaces";
 
 const useShoppingCart = () => {
-  const [shoppingCart, setShoppingCart] = useState<
-    ShoppingCartProduct[] | null
-  >(null);
+  const shoppingCart = useSelector(selectShoppingCartProducts);
 
   const dispatch = useAppDispatch();
 
   const requestShoppingCart = () => {
-    dispatch(getShoppingCart()).then((res) => {
-      if (res.payload) setShoppingCart(res.payload as ShoppingCartProduct[]);
-    });
+    dispatch(getShoppingCart());
   };
 
-  useEffect(() => requestShoppingCart, []);
+  useEffect(requestShoppingCart, []);
 
   return { shoppingCart, requestShoppingCart };
 };
