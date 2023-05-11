@@ -3,13 +3,15 @@ import ShoppingCartMenuProduct from "../../common/shoppingCartMenuProduct/Shoppi
 import SummarySkeleton from "./SummarySkeleton";
 //* Hooks
 import useCalculateShoppingCartPricing from "../../../hooks/useCalculateShoppingCartPricing";
-import useShoppingCart from "../../../hooks/useShoppingCart";
 //* Styles
 import styles from "./Summary.module.scss";
+import { useSelector } from "react-redux";
+import { selectShoppingCartProducts } from "../../../reducers/shoppingCart/shoppingCartReducer";
 
 const Summary = () => {
   const { shoppingCartPricing } = useCalculateShoppingCartPricing();
-  const { shoppingCart } = useShoppingCart();
+
+  const shoppingCart = useSelector(selectShoppingCartProducts);
 
   return (
     <div className={styles["summary-container"]}>
