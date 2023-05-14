@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from "@reduxjs/toolkit";
 import { InitialState } from "./interfaces";
-import { getOrderAmount } from "./ordersAsyncThunks";
+import { getOrderAmount, getUserOrders } from "./ordersAsyncThunks";
 
 const initialState: InitialState = {
   orders: null,
@@ -13,6 +13,7 @@ const options = {
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+    //* Get order amount
     builder.addCase(getOrderAmount.pending, (state) => {
       state.isLoading = true;
     }),
@@ -22,6 +23,19 @@ const options = {
         state.orderPricing = pricing;
       }),
       builder.addCase(getOrderAmount.rejected, (state) => {
+        state.isLoading = false;
+      });
+    //* Get user orders
+    builder.addCase(getUserOrders.pending, (state) => {
+      state.isLoading = true;
+    }),
+      builder.addCase(getUserOrders.fulfilled, (state, action) => {
+        const orders = action.payload;
+
+        state.isLoading = false;
+        state.orders = orders;
+      }),
+      builder.addCase(getUserOrders.rejected, (state) => {
         state.isLoading = false;
       });
   },
