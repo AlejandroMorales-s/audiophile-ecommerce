@@ -75,7 +75,7 @@ const ShoppingCart = () => {
             {shoppingCart &&
               calculateShoppingCartTotal({
                 shoppingCart,
-              }).grandTotal.toLocaleString()}
+              }).total.toLocaleString()}
           </p>
         </div>
 
