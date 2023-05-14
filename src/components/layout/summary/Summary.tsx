@@ -7,6 +7,7 @@ import useCalculateShoppingCartPricing from "../../../hooks/useCalculateShopping
 import styles from "./Summary.module.scss";
 import { useSelector } from "react-redux";
 import { selectShoppingCartProducts } from "../../../reducers/shoppingCart/shoppingCartReducer";
+import { OrderPricingList } from "../../common/orderPricingList/OrderPricingList";
 
 const Summary = () => {
   const { shoppingCartPricing } = useCalculateShoppingCartPricing();
@@ -27,23 +28,7 @@ const Summary = () => {
               />
             ))}
           </div>
-          <div className={styles["summary-pricing"]}>
-            <p className="regular-text">
-              Total <span>${shoppingCartPricing.total.toLocaleString()}</span>
-            </p>
-            <p className="regular-text">
-              Shipping{" "}
-              <span>${shoppingCartPricing.shipping.toLocaleString()}</span>
-            </p>
-            <p className="regular-text">
-              Vat (included){" "}
-              <span>${shoppingCartPricing.vat.toLocaleString()}</span>
-            </p>
-            <p className="regular-text">
-              Grand total{" "}
-              <span>${shoppingCartPricing.grandTotal.toLocaleString()}</span>
-            </p>
-          </div>
+          <OrderPricingList orderPricing={shoppingCartPricing} />
         </div>
       ) : (
         <SummarySkeleton />

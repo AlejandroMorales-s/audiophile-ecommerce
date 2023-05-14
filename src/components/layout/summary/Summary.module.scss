@@ -19,15 +19,5 @@
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    span {
-      font-weight: $bold;
-      color: $black;
-    }
-    &:last-of-type {
-      margin-top: 1.6rem;
-      span {
-        color: $primary;
-      }
-    }
   }
 }
