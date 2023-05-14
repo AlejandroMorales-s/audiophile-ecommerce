@@ -1,0 +1,23 @@
+@import "../../../App.scss";
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 3.1rem;
+  background-color: $white;
+  padding: 2.4rem;
+  @include box-shadow();
+  border-radius: 0.8rem;
+  margin: 9rem auto;
+}
+
+.orders-container {
+  display: grid;
+}
+
+@include respond-above(md) {
+  .orders-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+  }
+}

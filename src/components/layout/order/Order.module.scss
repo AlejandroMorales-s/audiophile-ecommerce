@@ -1,0 +1,55 @@
+@import "../../../App.scss";
+
+.order {
+  display: flex;
+  flex-direction: column;
+  gap: 3.1rem;
+  border-top: 2px solid $gray;
+  padding: 2.4rem 1rem;
+  &:first-of-type {
+    padding-top: 0;
+    border: none;
+  }
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+  .order-products {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  .order-details-container .order-details {
+    .order-details-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      .order-details-icon {
+        font-size: 1.75rem;
+        fill: $primary;
+      }
+    }
+    &:first-of-type {
+      .order-details-shipping-info ul {
+        gap: 0.8rem;
+        li {
+          display: flex;
+          justify-content: space-between;
+          text-transform: uppercase;
+          span {
+            font-weight: $bold;
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-above(md) {
+  .order {
+    border-radius: 0.8rem;
+    padding: 2.4rem !important;
+    border: 2px solid $gray !important;
+  }
+}
