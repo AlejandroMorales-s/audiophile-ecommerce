@@ -18,6 +18,8 @@ import { saveOrder } from "../../../reducers/orders/ordersAsyncThunks";
 //* Interfaces
 import { Order } from "../../../reducers/orders/interfaces";
 import { deleteShoppingCart } from "../../../reducers/shoppingCart/shoppingCartAsyncThunks";
+import PrimaryButton from "../primaryButton/PrimaryButton";
+import styles from "./StripeForm.module.scss";
 
 interface ComponentProps {
   orderData: Order | null;
@@ -124,19 +126,16 @@ const CheckoutForm: FC<ComponentProps> = ({ orderData }) => {
 
   return (
     <>
-      <form id="payment-form" onSubmit={handleSubmit}>
+      <form className={styles["payment-form"]} onSubmit={handleSubmit}>
         <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
-          </span>
-        </button>
+        <PrimaryButton
+          disabled={isLoading || !stripe || !elements}
+          type="submit"
+          text="Pay now"
+        />
+
         {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
+        {message && <div className={styles["payment-message"]}>{message}</div>}
       </form>
       {checkoutData && <CheckoutConfirmation checkoutData={checkoutData} />}
     </>
