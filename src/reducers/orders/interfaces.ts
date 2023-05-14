@@ -7,7 +7,6 @@ export interface InitialState {
 }
 
 export interface Order {
-  id: number;
   products: ShoppingCartProduct[];
   shippingInfo: ShippingInfo;
   pricing: Pricing;
