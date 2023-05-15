@@ -14,10 +14,6 @@
   gap: 2.4rem;
 }
 
-.product-info-container h3 {
-  font-size: 2.4rem;
-}
-
 .product-info-includes ul {
   display: flex;
   flex-direction: column;
@@ -35,7 +31,7 @@
 }
 
 @include respond-above(sm) {
-  .product-info-container h3 {
+  .product-info-container h5 {
     font-size: 3.2rem;
   }
   .product-info-includes {

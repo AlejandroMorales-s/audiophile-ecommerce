@@ -12,7 +12,7 @@ const ProductInfo: FC<Props> = ({ product }) => {
   return (
     <article className={styles["product-info-container"]}>
       <div className={styles["product-info-features"]}>
-        <h3>Features</h3>
+        <h5>Features</h5>
         <p
           className="regular-text"
           dangerouslySetInnerHTML={{
@@ -22,7 +22,7 @@ const ProductInfo: FC<Props> = ({ product }) => {
       </div>
 
       <div className={styles["product-info-includes"]}>
-        <h3>In the box</h3>
+        <h5>In the box</h5>
         <ul>
           {includes.map((includeItem, index) => {
             const { item, quantity } = includeItem;
