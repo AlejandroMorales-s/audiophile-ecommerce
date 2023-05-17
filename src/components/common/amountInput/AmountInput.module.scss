@@ -1,18 +1,12 @@
 @import "../../../App.scss";
 
-.number-input-container {
-  position: relative;
-  width: fit-content;
-}
-
 .number-input {
-  background-color: $gray;
+  background-color: rgba($color: $primary, $alpha: 0.1);
   border: none;
-  padding: 1.5rem 5.2rem;
-  width: 12rem;
-  font-size: 1.3rem;
-  font-weight: $bold;
+  font-size: 1.4rem;
   text-align: center;
+  color: $primary;
+  font-weight: $bold;
   &:focus {
     outline: none;
   }
@@ -20,23 +14,61 @@
 
 .number-input-plus,
 .number-input-minus {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   font-size: 1.3rem;
-  stroke-width: 5rem;
-  stroke: hsl(0, 0%, 71%);
-  fill: hsl(0, 0%, 71%);
-  // padding: 0 1rem;
+  stroke-width: 10rem;
+  stroke: rgba($color: $primary, $alpha: 0.45);
+  fill: rgba($color: $primary, $alpha: 0.45);
   height: 100%;
 }
 
-.number-input-minus {
-  left: 1.5rem;
+.number-input-container {
+  position: relative;
+  width: fit-content;
+
+  .number-input {
+    padding: 1.5rem 3rem;
+    width: 10rem;
+  }
+
+  .number-input-plus,
+  .number-input-minus {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .number-input-minus {
+    right: 1.5rem;
+  }
+
+  .number-input-plus {
+    left: 1.5rem;
+  }
 }
 
-.number-input-plus {
-  right: 1.5rem;
+.number-input-container-vertical {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: relative;
+  .number-input {
+    width: 4.5rem;
+    height: 10rem;
+  }
+  .number-input-plus,
+  .number-input-minus {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .number-input-minus {
+    top: 2.8rem;
+  }
+
+  .number-input-plus {
+    bottom: 2.8rem;
+  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,
