@@ -51,7 +51,7 @@ export const updateUserFullName = createAsyncThunk(
         withCredentials: true,
       });
 
-      thunkAPI.dispatch(setUserInfo(data[0]));
+      thunkAPI.dispatch(setUserInfo(data));
 
       thunkAPI.dispatch(
         setNotificationInfo({
@@ -86,7 +86,7 @@ export const updateUserEmail = createAsyncThunk(
         withCredentials: true,
       });
 
-      thunkAPI.dispatch(setUserInfo(data[0]));
+      thunkAPI.dispatch(setUserInfo(data));
 
       thunkAPI.dispatch(
         setNotificationInfo({
