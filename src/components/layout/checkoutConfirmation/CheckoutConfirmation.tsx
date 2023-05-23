@@ -31,8 +31,8 @@ const CheckoutConfirmation: FC<ComponentProps> = ({ checkoutData }) => {
       return (
         <>
           <ShoppingCartMenuProduct
-            product={firstProduct}
-            key={firstProduct.product_id}
+            shoppingCartProduct={firstProduct}
+            key={firstProduct.products.id}
             inSummary
           />
           <hr />
@@ -42,8 +42,8 @@ const CheckoutConfirmation: FC<ComponentProps> = ({ checkoutData }) => {
     } else {
       return (
         <ShoppingCartMenuProduct
-          product={firstProduct}
-          key={firstProduct.product_id}
+          shoppingCartProduct={firstProduct}
+          key={firstProduct.products.id}
           inSummary
         />
       );

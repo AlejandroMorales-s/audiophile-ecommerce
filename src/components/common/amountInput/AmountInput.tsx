@@ -4,9 +4,10 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 interface Props {
   quantityFromProduct?: number;
+  verticalInput?: boolean;
 }
 
-const AmountInput: FC<Props> = ({ quantityFromProduct }) => {
+const AmountInput: FC<Props> = ({ quantityFromProduct, verticalInput }) => {
   const [quantity, setQuantity] = useState(quantityFromProduct || 1);
 
   const handlePlusClick = () => {
@@ -22,10 +23,16 @@ const AmountInput: FC<Props> = ({ quantityFromProduct }) => {
   };
 
   return (
-    <div className={styles["number-input-container"]}>
-      <AiOutlineMinus
-        onClick={handleMinusClick}
-        className={styles["number-input-minus"]}
+    <div
+      className={
+        verticalInput
+          ? styles["number-input-container-vertical"]
+          : styles["number-input-container"]
+      }
+    >
+      <AiOutlinePlus
+        onClick={handlePlusClick}
+        className={styles["number-input-plus"]}
       />
       <input
         className={styles["number-input"]}
@@ -34,9 +41,9 @@ const AmountInput: FC<Props> = ({ quantityFromProduct }) => {
         name="amount"
         readOnly
       />
-      <AiOutlinePlus
-        onClick={handlePlusClick}
-        className={styles["number-input-plus"]}
+      <AiOutlineMinus
+        onClick={handleMinusClick}
+        className={styles["number-input-minus"]}
       />
     </div>
   );

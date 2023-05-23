@@ -1,0 +1,35 @@
+@import "../../../App.scss";
+
+.confirm-action-modal {
+  padding: 2rem;
+  background-color: $white;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  animation: slideIn 0.2s ease-in-out;
+  width: 100%;
+  max-width: 40rem;
+  h6 {
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  p {
+    font-weight: $bold;
+  }
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

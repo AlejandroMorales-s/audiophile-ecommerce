@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProductCard: FC<Props> = ({ product, inProductDetails }) => {
-  const { id, name, description, new: isNew, price, image_url } = product;
+  const { id, name, description, new: isNew, price, product_image } = product;
 
   //* Hooks
   const { addProduct, removeProduct, inShoppingCart } =
@@ -39,7 +39,7 @@ const ProductCard: FC<Props> = ({ product, inProductDetails }) => {
   return (
     <article className={styles["product-card"]}>
       <div className={styles["product-card-img-container"]}>
-        <img src={image_url} alt={name} />
+        <img src={product_image[0].image_url} alt={name} />
       </div>
       <div className={styles["product-card-info-container"]}>
         {isNew && <span className="overline">New product</span>}

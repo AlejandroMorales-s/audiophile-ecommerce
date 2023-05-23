@@ -23,11 +23,11 @@ const Order: FC<ComponentProps> = ({ order }) => {
     <div className={styles.order}>
       <h6>Order id: {id}</h6>
       <div className={styles["order-products"]}>
-        {products.map((product) => (
+        {products.map((product, index) => (
           <ShoppingCartMenuProduct
-            key={product.product_id}
+            key={index}
             inSummary
-            product={product}
+            shoppingCartProduct={product}
           />
         ))}
       </div>

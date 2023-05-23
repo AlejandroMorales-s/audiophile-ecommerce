@@ -4,7 +4,7 @@ import useValidateInputs from "./useValidateInputs";
 import useCalculateShoppingCartPricing from "./useCalculateShoppingCartPricing";
 import useShoppingCart from "./useShoppingCart";
 //* Redux
-import { Order, ShippingInfo } from "../reducers/orders/interfaces";
+import { NewOrder, ShippingInfo } from "../reducers/orders/interfaces";
 
 const useCreateOrder = () => {
   //* Custom hooks
@@ -15,7 +15,7 @@ const useCreateOrder = () => {
   //* States
   const [values, setValues] = useState<ShippingInfo>();
   const [isLoading, setIsLoading] = useState(false);
-  const [order, setOrder] = useState<null | Order>(null);
+  const [order, setOrder] = useState<null | NewOrder>(null);
 
   //* Add inputs
   const addInputs = (inputs: ShippingInfo) => {
@@ -37,7 +37,7 @@ const useCreateOrder = () => {
 
     setOrder({
       products: shoppingCart,
-      shippingInfo: values,
+      shipping_info: values,
       pricing: shoppingCartPricing,
     });
 

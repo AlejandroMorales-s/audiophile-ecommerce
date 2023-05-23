@@ -6,29 +6,35 @@ export interface InitialState {
   orderPricing: Pricing | null;
 }
 
-export interface Order {
-  products: ShoppingCartProduct[];
-  shippingInfo: ShippingInfo;
+export interface NewOrder {
+  products: OrderProductDetails[] | ShoppingCartProduct[];
   pricing: Pricing;
+  shipping_info: ShippingInfo;
 }
 
-export interface OrderFromDb {
+export interface OrderFromDb extends NewOrder {
   id: number;
-  products: ShoppingCartProduct[];
-  shipping_info: ShippingInfo;
-  pricing: Pricing;
+  user_id: number;
 }
 
 export interface Pricing {
+  vat: number;
   total: number;
   shipping: number;
-  vat: number;
   grandTotal: number;
 }
 
+export interface OrderProductDetails {
+  name: string;
+  price: string;
+  quantity: number;
+  image_url: string;
+  product_id: number;
+}
+
 export interface ShippingInfo {
-  address: string;
-  zipCode: number;
   city: string;
+  address: string;
   country: string;
+  zipCode: number;
 }

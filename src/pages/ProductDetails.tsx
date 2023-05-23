@@ -25,7 +25,7 @@ const ProductDetails = () => {
       ) : (
         <>
           <ProductCard product={product} inProductDetails={true} />
-          <ProductInfo product={product} />
+          <ProductInfo productDetails={product.product_details} />
         </>
       )}
     </ProductDetailsTemplate>
