@@ -27,7 +27,7 @@ const Order: FC<ComponentProps> = ({ order }) => {
           <ShoppingCartMenuProduct
             key={product.product_id}
             inSummary
-            product={product}
+            shoppingCartProduct={product}
           />
         ))}
       </div>

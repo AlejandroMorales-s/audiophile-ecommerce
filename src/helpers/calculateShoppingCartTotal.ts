@@ -10,9 +10,10 @@ export const calculateShoppingCartTotal = ({
   let vat = 0;
   let grandTotal = 0;
 
-  shoppingCart.forEach((product) => {
-    const { price, quantity } = product;
-    const currentProductTotal = price * quantity;
+  shoppingCart.forEach((ShoppingCartProduct) => {
+    const { products, quantity } = ShoppingCartProduct;
+    const { price } = products;
+    const currentProductTotal = parseInt(price) * quantity;
 
     total += currentProductTotal;
   });

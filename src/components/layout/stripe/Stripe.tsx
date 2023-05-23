@@ -8,13 +8,13 @@ import { Elements } from "@stripe/react-stripe-js";
 import StripeForm from "../../common/stripeForm/StripeForm";
 import { useSelector } from "react-redux";
 import { selectShoppingCartProducts } from "../../../reducers/shoppingCart/shoppingCartReducer";
-import { Order } from "../../../reducers/orders/interfaces";
+import { NewOrder } from "../../../reducers/orders/interfaces";
 import instance from "../../../axios";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_API_KEY);
 
 interface ComponentProps {
-  orderData: Order | null;
+  orderData: NewOrder | null;
 }
 
 const Stripe: FC<ComponentProps> = ({ orderData }) => {

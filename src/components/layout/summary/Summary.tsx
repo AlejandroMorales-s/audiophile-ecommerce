@@ -1,13 +1,14 @@
 //* Components
 import ShoppingCartMenuProduct from "../../common/shoppingCartMenuProduct/ShoppingCartMenuProduct";
 import SummarySkeleton from "./SummarySkeleton";
+import { OrderPricingList } from "../../common/orderPricingList/OrderPricingList";
 //* Hooks
 import useCalculateShoppingCartPricing from "../../../hooks/useCalculateShoppingCartPricing";
-//* Styles
-import styles from "./Summary.module.scss";
+//* Redux
 import { useSelector } from "react-redux";
 import { selectShoppingCartProducts } from "../../../reducers/shoppingCart/shoppingCartReducer";
-import { OrderPricingList } from "../../common/orderPricingList/OrderPricingList";
+//* Styles
+import styles from "./Summary.module.scss";
 
 const Summary = () => {
   const { shoppingCartPricing } = useCalculateShoppingCartPricing();
@@ -20,11 +21,11 @@ const Summary = () => {
       {shoppingCart && shoppingCartPricing ? (
         <div className={styles["summary-details-container"]}>
           <div className={styles["summary-products"]}>
-            {shoppingCart.map((product) => (
+            {shoppingCart.map((product, index) => (
               <ShoppingCartMenuProduct
-                key={product.product_id}
+                key={index}
                 inSummary
-                product={product}
+                shoppingCartProduct={product}
               />
             ))}
           </div>

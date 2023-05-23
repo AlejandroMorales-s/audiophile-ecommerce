@@ -1,12 +1,18 @@
+import { ProductImage } from "../../commonInterfaces";
+
 export interface InitialState {
   isLoading: boolean;
-  products: ShoppingCartProduct[] | null;
+  shoppingCartProducts: ShoppingCartProduct[] | null;
 }
 
 export interface ShoppingCartProduct {
-  name: string;
-  price: number;
-  product_id: number;
   quantity: number;
-  image_url: string;
+  products: ProductDetailsFromShoppingCart;
+}
+
+export interface ProductDetailsFromShoppingCart {
+  name: string;
+  price: string;
+  id: number;
+  product_image: ProductImage[];
 }

@@ -55,10 +55,10 @@ const ShoppingCart = () => {
           ) : (
             <>
               {shoppingCart.length > 0 ? (
-                shoppingCart.map((product) => (
+                shoppingCart.map((product, index) => (
                   <ShoppingCartMenuProduct
-                    key={product.product_id}
-                    product={product}
+                    key={index}
+                    shoppingCartProduct={product}
                   />
                 ))
               ) : (

@@ -8,6 +8,7 @@ import {
 import "./StripeForm.module.scss";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 //* Components
+import PrimaryButton from "../primaryButton/PrimaryButton";
 import CheckoutConfirmation, {
   CheckoutData,
 } from "../../layout/checkoutConfirmation/CheckoutConfirmation";
@@ -15,14 +16,14 @@ import CheckoutConfirmation, {
 import { useAppDispatch } from "../../../store";
 import { setNotificationInfo } from "../../../reducers/notification/notificationReducer";
 import { saveOrder } from "../../../reducers/orders/ordersAsyncThunks";
-//* Interfaces
-import { Order } from "../../../reducers/orders/interfaces";
 import { deleteShoppingCart } from "../../../reducers/shoppingCart/shoppingCartAsyncThunks";
-import PrimaryButton from "../primaryButton/PrimaryButton";
+//* Interfaces
+import { NewOrder } from "../../../reducers/orders/interfaces";
+//* Styles
 import styles from "./StripeForm.module.scss";
 
 interface ComponentProps {
-  orderData: Order | null;
+  orderData: NewOrder | null;
 }
 
 const CheckoutForm: FC<ComponentProps> = ({ orderData }) => {
@@ -93,7 +94,7 @@ const CheckoutForm: FC<ComponentProps> = ({ orderData }) => {
         })
       ).then((action) => {
         if (!action.payload) return;
-        setCheckoutData(action.payload[0]);
+        setCheckoutData(action.payload);
         dispatch(deleteShoppingCart());
       });
       return;

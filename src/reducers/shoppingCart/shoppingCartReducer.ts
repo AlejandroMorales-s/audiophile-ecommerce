@@ -10,7 +10,7 @@ import {
 //* Initial State
 const initialState: InitialState = {
   isLoading: false,
-  products: null,
+  shoppingCartProducts: null,
 };
 
 //* Options
@@ -26,7 +26,7 @@ const options = {
     builder.addCase(getShoppingCart.fulfilled, (state, action) => {
       const { payload } = action;
       state.isLoading = false;
-      state.products = payload;
+      state.shoppingCartProducts = payload;
     });
     builder.addCase(getShoppingCart.rejected, (state) => {
       state.isLoading = false;
@@ -38,7 +38,7 @@ const options = {
     builder.addCase(deleteShoppingCart.fulfilled, (state, action) => {
       const { payload } = action;
       state.isLoading = false;
-      state.products = payload;
+      state.shoppingCartProducts = payload;
     });
     builder.addCase(deleteShoppingCart.rejected, (state) => {
       state.isLoading = false;
@@ -50,7 +50,7 @@ const options = {
     builder.addCase(addToShoppingCart.fulfilled, (state, action) => {
       const { payload } = action;
       state.isLoading = false;
-      state.products = payload;
+      state.shoppingCartProducts = payload;
     });
     builder.addCase(addToShoppingCart.rejected, (state) => {
       state.isLoading = false;
@@ -62,7 +62,7 @@ const options = {
     builder.addCase(removeFromShoppingCart.fulfilled, (state, action) => {
       const { payload } = action;
       state.isLoading = false;
-      state.products = payload;
+      state.shoppingCartProducts = payload;
     });
     builder.addCase(removeFromShoppingCart.rejected, (state) => {
       state.isLoading = false;
@@ -79,7 +79,7 @@ export const selectShoppingCartLoading = (state: {
 
 export const selectShoppingCartProducts = (state: {
   shoppingCart: InitialState;
-}) => state.shoppingCart.products;
+}) => state.shoppingCart.shoppingCartProducts;
 
 //* Exporting reducer
 export default shoppingCartSlice.reducer;

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios";
-import { Order, OrderFromDb } from "./interfaces";
+import { NewOrder, OrderFromDb } from "./interfaces";
 import { ErrorType } from "../auth/interfaces";
 import { setNotificationInfo } from "../notification/notificationReducer";
 
@@ -32,7 +32,7 @@ export const getOrderAmount = createAsyncThunk(
 //* Save order in db
 export const saveOrder = createAsyncThunk(
   "orders/saveOrder",
-  async ({ orderData }: { orderData: Order }, thunkAPI) => {
+  async ({ orderData }: { orderData: NewOrder }, thunkAPI) => {
     try {
       const { data } = await instance.post("orders/create-order", orderData, {
         withCredentials: true,
