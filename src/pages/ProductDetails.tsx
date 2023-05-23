@@ -6,7 +6,6 @@ import useProduct from "../hooks/useProduct";
 //* Components
 import ProductCard from "../components/layout/productCard/ProductCard";
 import ProductInfo from "../components/common/productInfo/ProductInfo";
-import ProductReviews from "../components/layout/productReviews/ProductReviews";
 //* Skeletons
 import ProductCardSkeleton from "../components/common/productCardSkeleton/ProductCardSkeleton";
 import ProductInfoSkeleton from "../components/common/productInfoSkeleton/ProductInfoSkeleton";
@@ -27,7 +26,6 @@ const ProductDetails = () => {
         <>
           <ProductCard product={product} inProductDetails={true} />
           <ProductInfo productDetails={product.product_details} />
-          <ProductReviews />
         </>
       )}
     </ProductDetailsTemplate>
