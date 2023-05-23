@@ -1,3 +1,5 @@
+import { ShoppingCartProduct } from "../shoppingCart/interfaces";
+
 export interface InitialState {
   orders: OrderFromDb[] | null;
   isLoading: boolean;
@@ -5,7 +7,7 @@ export interface InitialState {
 }
 
 export interface NewOrder {
-  products: OrderProductDetails[];
+  products: OrderProductDetails[] | ShoppingCartProduct[];
   pricing: Pricing;
   shipping_info: ShippingInfo;
 }
